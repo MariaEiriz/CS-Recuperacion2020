@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Tetris</string>
+
+    <string name="botones_mov_fichas"></string>
+
+    <string name="text_puntos">Puntos:</string>
+    <string name="text_nivel">Nivel:</string>
+
+    <string name="text_start">START</string>
+    <string name="text_go_menu">MENU</string>
+    <string name="text_exit">EXIT</string>
+
+    <string name="text_nombre_jugador">Nombre del Jugador</string>
+    <string name="text_puntuacion">Puntuacion de la partida</string>
+    <string name="boton_registrar">Registrar</string>
+    <string name = "text_mostrar_ranking"></string>
+    <string name = "text_restablecer_estadisticas">Restablecer\nEstadisticas</string>
+    <string name = "text_1ranking">1º</string>
+    <string name = "text_2ranking">2º</string>
+    <string name = "text_3ranking">3º</string>
+    <string name = "text_4ranking">4º</string>
+    <string name = "text_5ranking">5º</string>
+    <string name = "text_6ranking">6º</string>
+    <string name = "text_puntos_actual">Tu puntuacion:</string>
+
+    <string name="title_activity_opciones">Colores</string>
+    <string name="text_cuadrado">Cuadrado</string>
+    <string name="text_ColorCuadrado">Color Square:</string>
+    <string name="text_zPieza">Z Pieza</string>
+    <string name="text_ColorZPieza">Color Z:</string>
+    <string name="text_iPieza">I Pieza</string>
+    <string name="text_ColorIPieza">Color I:</string>
+    <string name="text_tPieza">T Pieza</string>
+    <string name="text_ColorTPieza">Color T:</string>
+    <string name="text_sPieza">S Pieza</string>
+    <string name="text_ColorSPieza">Color S:</string>
+    <string name="text_lPieza">L Pieza</string>
+    <string name="text_ColorLPieza">Color L:</string>
+    <string name="text_jPIeza">J Pieza</string>
+    <string name="text_ColorJPIeza">Color J:</string>
+
+    <string name="text_colorRojo">Red</string>
+    <string name="text_colorRosa">Pink</string>
+    <string name="color_colorAzulClaro">Light Blue</string>
+    <string name="text_colorAzulOscuro">Dark Blue</string>
+    <string name="text_colorVerde">Green</string>
+    <string name="text_colorNaranja">Orange</string>
+    <string name="text_colorAmarillo">Yellow</string>
+
+    <string name="text_cambios">Aplicar Cambios</string>
+
+    <string name="text_colores">Colores</string>
+    <string name="imageView_Opciones">Opciones</string>
+
+    <string name="text_atras">Atras</string>
+
+    <string name="text_muerte_subdita">Muerte Súbita</string>
+    <string name="text_modo_clasico">Modo Clásico</string>
+
+</resources>
