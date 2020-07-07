@@ -42,7 +42,7 @@ addons:
     organization: "mariaeiriz" # the key of the org you chose at step #3
     token:
       # encrypted value of your token
-      secure: "136238fb7a9774005bf951256e47e0285bb040ab"
+      secure: "36641ce4cdac4f1b59acdf9c6a333ce146aad1fc"
 
 script:
 - ./gradlew clean
