@@ -37,6 +37,13 @@ before_install:
  - chmod +x gradlew
  - yes | sdkmanager "platforms;android-29"
 
+addons:
+ sonarcloud:
+  organization: "mariaeiriz" # the key of the org you chose at step #3
+  token:
+   # encrypted value of your token
+   secure: "ufq9yRS/xmOaH8GLBUnff/r7V1t9OPZeHIfKuphh+ArwLRvq0KBm7/DF9BImjyvHU+tkv6CDeUb1oRmqA8G6frl676DxnnrN5K/YWcRIa7J2QxkPo4XCYyG1OeV/jPHkTl2T0K9VWoG45Q/faDnycA3KnuSnqRYrbDcXnYI8xMFbbwvGWBfX7PlmcmWlDgCYspawqJNtr4zFROmu3XA3OiUmtU1NstJTzJF2jeUuwlrxKzKbXNjyxwdiSzWjj5fxJQSbes66BvTFbV/OTnbotMSLXu6IcUgDMht/dMJGHqElQDx4QOFwQWNCQQ7oDjkw0QoE3sWW6XKLh3lPVLwOmjXRN56JKrBPMo4CS72xyLibgMR2KoUCnFEjXZfg1OAXItcCPAjizRQxN32Ps7g/pvDIMvsf8HHI5Gt55+wnu3cqSSpI/j6cEY91oLXkRola0IQd+8RaLu/h5FJ7Qpe/68ulo/Rb9qkPqS3b+anwt945QZBpoVvOM25+6h/LxXXy+vPPsz1CHkRCJ5Xz2oklDq2edUimkYZAwvrTxmZrzzm+AWp0zdzG7hRv6aHicLAU3TeSKL01icHd4ddGfBBhlKYTus3UrUQ/x4Iro801j2H6ulmGLhA/4ThwqnRSY3qaXoyIYYnFm8h7bReWrwcGpTgdJLiFYWz4G9UJW5+mgG0="
+
 script:
  - ./gradlew clean
 branches:
