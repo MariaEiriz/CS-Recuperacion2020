@@ -44,7 +44,7 @@ deploy:
  provider: releases
  edge: true
  api_key:
-  secure: 809c4a0b740883d9adf5eecef88d78a3292c0e56
+  secure: "809c4a0b740883d9adf5eecef88d78a3292c0e56"
  file:
   - "app/*"
 skip_cleanup: true
