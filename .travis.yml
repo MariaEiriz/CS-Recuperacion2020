@@ -42,16 +42,5 @@ script:
 branches:
  only:
   - master
-deploy:
- provider: releases
- edge: true
- api_key:
-  secure: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCaExQeY5bmrgoamFHg28iZlr3wFOD3qt58x31GN9BWHmB0CtmBIi/sijo/FjG0UHoQQsqaqMwzMnpKDgojbr+8iy74N3UeDHGKRUqObbJ19kzytHeF07TNTMLAkqaNH+TMKgN4HNghNGu6327kcr/GxSbJDz2dIoYf03PPNxtmhsgeQU3G2Fs6yguV7DxJza5NOuj5MWG9KUa/vUTm1fTjOrMzTB2hqDxZxll04+w9Bp4co+n0L1dPUj/gtAA2lxdBb/VwkiLcDSdsvqCHJvG4+aGO1DcdnLIj2QMcX7i47i7InBgnxaLhLLPD5tHyutxEy41pQllVz4A59EX7QJvlFtNxh6yCeDKTz5ft1N1kqObL6GuqOY+rU9PXjVKhq1U+d+4OvXJCKQLcbJ2otXT2rQy6bJoIi/YWPIgbYFUPcivCvJ7YJuVFbvtgv4iJwAgaVl9Ym3nurDM819hecyTkzqPMJTTsijdcVfNcQGf38l9nKFORfTUdJC6aAj1hCQcc8oMjXq/mMiOGLJmhit60LkTfWja11WAo8Q4P4q7Ug5mkJtACir5olEz9bNjBc40M3Z6PRZLtFJ+yNOCLu7JLY3IJj3i8eBPJ2K8tbNNi2SA6nQlbN8nK3gQ4tBdcgwTDuSa2Ln8K0sPDSmX2Y7ckiz3LauNFDSoyrU9fQAO9qw== mary.eiriz@gmail.com"
- file:
-  - "app/*"
-skip_cleanup: true
-on:
- branch: master
- repo: MariaEiriz/CS-Recuperacion2020
- tags: false
+
 
