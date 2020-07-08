@@ -43,7 +43,7 @@ script:
 deploy:
  provider: releases
  api_key:
-  secure: "1c25b5ca00c0021f13bf32be7ec54ce5d9920b33"
+  secure: 1c25b5ca00c0021f13bf32be7ec54ce5d9920b33
  file:
   - "app/*"
 skip_cleanup: true
