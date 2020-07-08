@@ -39,16 +39,18 @@ before_install:
 
 script:
  - ./gradlew clean
-
+branches:
+ only:
+  - master
 deploy:
  provider: releases
  edge: true
- api_key:
-  secure: "809c4a0b740883d9adf5eecef88d78a3292c0e56"
+ api_key: $GITHUB_TOKEN
  file:
   - "app/*"
 skip_cleanup: true
 on:
+ branch: master
  repo: MariaEiriz/CS-Recuperacion2020
  tags: false
 
