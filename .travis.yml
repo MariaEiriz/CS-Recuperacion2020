@@ -43,22 +43,11 @@ addons:
   token:
    # encrypted value of your token
    secure: "1pu1aQW/pM+NhnG9VXZKSoWv3/7s0/shMOgRUbjnywXWbbJSoZpajCpicbr1Q7Yw6LA0qiiPIHC18aNL5tSjcwgHujq36AD27usza97Dw8ZtZri0BAJg+KwwFJ2vB01uaLHv3bnNs2rPACSTVcrbhvfTQHIQKxWQfaWk0lWi31UM6PO5CkrsxqKcS3YOleRUdYeHZbYcX3vLOB38xSfIJJ3juYtW2YqAewVKvGLdaoWMlhT/kAZJ87NUmb0wP2dL/QOAguaLWwJK+4B7xCXA0g8Ceh5rms69TEnkOgpmJv1foVdnrsX63TPSc6KsIVGol7vHQpZf5uOGAsU9Ogl4O5x5H5wbeyrfEQ09mdZ+DzYqpmIXDCAuBebt8yrfGvT12oFmVUMK2Bm271XzsShs2WCZ2vzx2DBynDHXHZoTVlhPzoLn2wsc+mgeJUAoKyjhieoNeT84l0zG4FJSDowmsbDeLBVYJqALdEuGpOS8gLPy6d0K9ognVtazmQ6Nw2/z/3zQY0zvrFNJCcn1XqiR42toNiTCp/LyKqO+l86Pv4n5+3pk8q6cnRnFnafEvAYsVrQ+LL3lMdg4vbVWUCKmXMNBJASprGQrcxjbJzSebmGvQ2ChSQ7+BBHQF9/LhTbyxHP9lpws0cg4oxJfLEFilDeMn17paLlnY2iE6GKOCxM="
+
 script:
  - ./gradlew clean
+ - ./gradlew sonarqube
 
-branches:
- only:
-  - master
-deploy:
- provider: releases
- api_key:
-   secure: "aUA5r2y0a5vCqxae1BF3fJGgDF8mGIUfxZBnXupGLcFNjxQzkitH/OvQtsi/DJUnb9lgCxmyxISG5y8yIiDReW+rQA/kqGfE6klGFr4ys0ZCZoocbeZAHnglFH5GB11Ww4WFEc67zLiUKY5DrJSTmEEitpU44i9la/5Q8T4sIwr+UaAS5Y98/iTBEasvILfBRDybgwW9oNhMndX8WWt47GJzCzky+G8zZ8GQ+Arva4eV0sCJ+ICMUQXsR7Bs4tNrAc/gKHlgjhrKrPG8GsASUz+OtzrqkyHgoAu1ZIPJSMWIcBU35A0PruE313SlbO+9/K8RwDo9CNL9fN8htUO0t8dxb5OWiSzu8PrRbyxgxjO0EDmjS2JvYLwAo/mznZ+FJyuJ1ltrhi7iDwl/iyD01CBiAcaIoDvEVkZZ8EXzKDLrADyPHDAEBcdTlXxcezjcFXBHCWm/6hzlW6AtLbe2xI+VYtwv4yJU7s+wbrvya3zcfI9s8bXw//eyyaeSudkC0aIqJI7o1MeQcODMTcmi7WEJ/MZgXREE7WRszhqqGCscSnzozLAsEr7mT4dL0p3VSbxnvTkS/u7cX5U1nOxL+r2jAhWetppNgrwNJhkCVQK3FwtbZIGd4gkri9+eOT8vjfEDKfFzRzF7u6V9frLx4j6s9XjcBkByszLFkYfBpiA="
- file:
-  - "app/*"
- skip_cleanup: true
- on:
-  repo: MariaEiriz/CS-Recuperacion2020
-  tags: false
 
 
 
