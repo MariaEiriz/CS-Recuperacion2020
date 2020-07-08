@@ -44,7 +44,7 @@ script:
 
 deploy:
  provider: releases
- api_key: $GITHUB_TOKEN
+ api_key: $token
  file:
   - "app/*"
 skip_cleanup: true
