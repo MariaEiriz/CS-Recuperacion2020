@@ -56,5 +56,6 @@
 
     <string name="text_muerte_subdita">Muerte Súbita</string>
     <string name="text_modo_clasico">Modo Clásico</string>
+    <string name="appbar_scrolling_view_behavior" />
 
 </resources>

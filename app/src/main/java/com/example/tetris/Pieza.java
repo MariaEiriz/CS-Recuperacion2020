@@ -1,7 +1,5 @@
 package com.example.tetris;
 
-import com.google.android.material.tabs.TabLayout;
-
 public class Pieza {
 
     public int idColor;

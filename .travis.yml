@@ -46,6 +46,8 @@ addons:
 
 script:
  - ./gradlew clean
+ - ./gradlew assembleDebug
+ - ./gradlew assembleDebugAndroidTest
  - ./gradlew sonarqube
 
 
