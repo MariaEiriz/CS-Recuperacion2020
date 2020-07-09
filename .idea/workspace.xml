@@ -14,12 +14,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/tetris/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/tetris/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/Tablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/VentanaNext.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tetris/VentanaNext.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +131,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Inicio" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
+    <configuration name="Inicio" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -376,28 +377,28 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="353" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1594124675408" />
-    <state width="1398" height="354" key="GridCell.Tab.0.bottom" timestamp="1594249413156">
+    <state width="1398" height="354" key="GridCell.Tab.0.bottom" timestamp="1594324950353">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="354" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594249413156" />
+    <state width="1398" height="354" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594324950353" />
     <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1594129301028" />
     <state width="1398" height="212" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1594128715987" />
-    <state width="1398" height="354" key="GridCell.Tab.0.center" timestamp="1594249413155">
+    <state width="1398" height="354" key="GridCell.Tab.0.center" timestamp="1594324950351">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="354" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594249413155" />
+    <state width="1398" height="354" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594324950351" />
     <state width="1398" height="210" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1594129301027" />
     <state width="1398" height="212" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1594128715986" />
-    <state width="1398" height="354" key="GridCell.Tab.0.left" timestamp="1594249413154">
+    <state width="1398" height="354" key="GridCell.Tab.0.left" timestamp="1594324950351">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="354" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594249413154" />
+    <state width="1398" height="354" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594324950351" />
     <state width="1398" height="210" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1594129301027" />
     <state width="1398" height="212" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1594128715986" />
-    <state width="1398" height="354" key="GridCell.Tab.0.right" timestamp="1594249413156">
+    <state width="1398" height="354" key="GridCell.Tab.0.right" timestamp="1594324950352">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="354" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594249413156" />
+    <state width="1398" height="354" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594324950352" />
     <state width="1398" height="210" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1594129301028" />
     <state width="1398" height="212" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1594128715986" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1594142246946">
@@ -424,5 +425,35 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1440.900@0.0.1440.900" timestamp="1594128083460" />
+    <state x="482" y="63" key="refactoring.ChangeSignatureDialog" timestamp="1594322156812">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="482" y="63" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1594322156812" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1594323019132">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1594323019132" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tetris/Ranking.java</url>
+          <line>87</line>
+          <properties class="com.example.tetris.Ranking" method="Eliminar">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tetris/Ranking.java</url>
+          <line>119</line>
+          <properties class="com.example.tetris.Ranking" method="Modificar">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
