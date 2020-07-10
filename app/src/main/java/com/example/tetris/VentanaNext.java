@@ -32,7 +32,7 @@ public class VentanaNext extends View {
     public void limpiarVentana() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                ventana.getTab()[i][j] = 0;
+                ventana.tab[i][j] = 0;
             }
         }
     }
