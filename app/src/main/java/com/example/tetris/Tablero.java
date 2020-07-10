@@ -1,22 +1,16 @@
 package com.example.tetris;
-
 import android.graphics.Color;
 import android.graphics.Point;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
-
 public class Tablero {
-
-    private final int alturaTablero = 20;
-    private final int anchuraTablero = 10;
-    public int tab[][] = new int[anchuraTablero][alturaTablero];
+    private static final int ALTURA_TABLERO = 20;
+    private static final int ANCHURA_TABLERO = 10;
+    private int tab[][] = new int[ANCHURA_TABLERO][ALTURA_TABLERO];
     private final Random random = new Random();
-    public ArrayList<Pieza> listaPiezas = new ArrayList<Pieza>();
-    private final int numeroPiezas = 7;
+    private  ArrayList<Pieza> listaPiezas = new ArrayList<>();
+    private static final int NUMERO_PIEZAS = 7;
     private static int colorCuadrado = 1;
     private static int colorZPieza = 2;
     private static int colorIPieza = 3;
@@ -27,19 +21,17 @@ public class Tablero {
     private Pieza auxTroll;
 
     public Tablero() {
-        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, 0));
-        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, 0));
+        listaPiezas.add(new Pieza(random.nextInt(this.NUMERO_PIEZAS) + 1, 0));
+        listaPiezas.add(new Pieza(random.nextInt(this.NUMERO_PIEZAS) + 1, 0));
     }
 
     public void generarPieza(int altura) {
-        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, altura));
+        listaPiezas.add(new Pieza(random.nextInt(this.NUMERO_PIEZAS) + 1, altura));
     }
 
     public void borrarPieza() {
         listaPiezas.remove(0);
     }
-    //transforma numeros de matriz a color
-
 
     public static void setColorCuadrado(int colorCuadrado) {
         Tablero.colorCuadrado = colorCuadrado;
@@ -109,14 +101,11 @@ public class Tablero {
         if (tab[x][y] == 8) return Color.parseColor("#acacac"); //gris pieza bloqueo
         if (tab[x][y] == 9) return Color.parseColor("#FFFFFF"); //pieza troll
         if (tab[x][y] == 10) return Color.parseColor("#FFFFFF"); //pieza troll
-
         return -1;
     }
 
-
-
-    public void CambiarColores1Linea() {
-        int aux = random.nextInt(numeroPiezas) + 1;
+    public void cambiarColores1Linea() {
+        int aux = random.nextInt(this.NUMERO_PIEZAS) + 1;
         for (int y = 19; y > 0; y--) {
             for (int x = 0; x < 10; x++) {
                 if (tab[x][y] != 0 && tab[x][y] != 8 && tab[x][y] != 9 && tab[x][y] != 10) {
@@ -126,50 +115,17 @@ public class Tablero {
         }
     }
 
-    public void CambiarColoresMultiLinea() {
+    public void cambiarColoresMultiLinea() {
         for (int y = 19; y > 0; y--) {
             for (int x = 0; x < 10; x++) {
                 if (tab[x][y] != 0 && tab[x][y] != 8 && tab[x][y] != 9 && tab[x][y] != 10) {
-                    tab[x][y] = random.nextInt(numeroPiezas) + 1;
+                    tab[x][y] = random.nextInt(this.NUMERO_PIEZAS) + 1;
                 }
             }
         }
     }
-
-    public boolean puedePonerse(Pieza pieza) {
-        if(pieza!=null){
-            Point xy1 = new Point(pieza.x1, pieza.y1);
-            Point xy2 = new Point(pieza.x2, pieza.y2);
-            Point xy3 = new Point(pieza.x3, pieza.y3);
-            Point xy4 = new Point(pieza.x4, pieza.y4);
-
-            ArrayList<Point> puntos = new ArrayList<>();
-            puntos.add(xy1);
-            puntos.add(xy2);
-            puntos.add(xy3);
-            puntos.add(xy4);
-            int contador = 0;
-            for (Point a : puntos) {
-                if (this.tab[a.x][a.y] == 0) {
-                    contador++;
-                }else if (a.equals(xy1) || a.equals(xy2) || a.equals(xy3) || a.equals(xy4)) {
-                    contador++;
-                }
-            }
-            if(contador==4){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        else{
-            return false;
-        }
-    }
-
 
     public void comerTablero(int y) {
-        //y=0 sustituir mas tarde por altura variada
         for (int j = 0; j < y; j++) {
             for (int x = 0; x < getAnchoTablero(); x++) {
                 tab[x][j] = 8;
@@ -193,10 +149,9 @@ public class Tablero {
     }
 
     public List<Integer> detectarFilas(Pieza troll) {
-        int contador = 0;
         List<Integer> l = new ArrayList<>();
         for (int y = 19; y >= 0; y--) {
-            contador = 0;
+            int contador = 0;
             for (int x = 0; x < getAnchoTablero(); x++) {
                 if (tab[x][y] != 0 && tab[x][y] != 8) {
                     contador++;
@@ -221,25 +176,14 @@ public class Tablero {
         auxTroll.copiarPieza(troll);
     }
 
-
-    //todas las posiciones a 0 para Thanos
-    public void limpiarTablero() {
-        for (int y = 0; y < alturaTablero; y++) {
-            ponerFila0(y);
-        }
-    }
-
     public ArrayList<Pieza> getListaPiezas() {
         return listaPiezas;
     }
 
-    //coge la Piezas actual
     public Pieza getPieza() {
         return listaPiezas.get(0);
     }
 
-
-    //crear en clase Piezas atributo entero colorCode
     public void ponerPieza(Pieza pieza) {
         tab[pieza.x1][pieza.y1] = pieza.idColor;
         tab[pieza.x2][pieza.y2] = pieza.idColor;
@@ -253,361 +197,153 @@ public class Tablero {
         tab[pieza.x3][pieza.y3] = 0;
         tab[pieza.x4][pieza.y4] = 0;
     }
-
-
-    /*Este metodo por favor no lo toqueis ni borreis porque os crujo
-    servira para hacer las rotaciones en un futuro no muy lejano
-     */
-
-    //añadir el cambio de la posicion de la pieza
-
+    public Pieza cambiarPosicion(Pieza p, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+        p.x1 = p.x1 + x1;
+        p.y1 = p.y1 + y1;
+        p.x2 = p.x2 + x2;
+        p.y2 = p.y2 + y2;
+        p.x3 = p.x3 + x3;
+        p.y3 = p.y3 + y3;
+        p.x4 = p.x4 + x4;
+        p.y4 = p.y4 + y4;
+        return p;
+    }
     public void alfredo(Pieza p) {
-        switch (p.id) {
-
-            case 1:
-                //Cuadrado uso salpicadura
-                //No tuvo ningun efecto
-                break;
-
-            case 2:
-                switch (p.pos) {
-                    case 0:
-                        p.x1 = p.x1 + 1;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 + 1;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 - 2;
-                        p.y4 = p.y4 + 1;
-                        break;
-
-                    case 1:
-                        p.x1 = p.x1 - 1;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 - 1;
-                        p.x3 = p.x3 + 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 2;
-                        p.y4 = p.y4 - 1;
-                        break;
-                }
-                if (p.pos == 1) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
-                }
-
-                break;
-
-            case 3://
-                switch (p.pos) {
-                    case 0:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 1;
-                        p.y2 = p.y2 - 1;
-                        p.x3 = p.x3 + 2;
-                        p.y3 = p.y3 - 2;
-                        p.x4 = p.x4 + 3;
-                        p.y4 = p.y4 - 3;
-                        break;
-
-                    case 1:
-                        p.y1 = p.y1 + 0;
-                        p.x1 = p.x1 + 0;
-                        p.y2 = p.y2 + 1;
-                        p.x2 = p.x2 - 1;
-                        p.y3 = p.y3 + 2;
-                        p.x3 = p.x3 - 2;
-                        p.y4 = p.y4 + 3;
-                        p.x4 = p.x4 - 3;
-                        break;
-                }
-                if (p.pos == 1) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
+        switch (p.id){
+            case 2:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,1,0,0,1,-1, 0, -2, 1);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,-1,0,0,-1,1, 0, 2, -1);
+                    p.pos =1;
                 }
                 break;
-
-            case 4:
-                switch (p.pos) {
-
-                    case 0:
-                        p.x1 = p.x1 + 1;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 + 1;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 + 2;
-                        p.x4 = p.x4 - 1;
-                        p.y4 = p.y4 + 0;
-                        break;
-
-                    case 1:
-                        p.x1 = p.x1 + 1;
-                        p.y1 = p.y1 + 1;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 + 0;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 - 1;
-                        p.x4 = p.x4 + 1;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 2:
-                        p.x1 = p.x1 - 2;
-                        p.y1 = p.y1 + 1;
-                        p.x2 = p.x2 - 1;
-                        p.y2 = p.y2 + 0;
-                        p.x3 = p.x3 + 0;
-                        p.y3 = p.y3 - 1;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 + 1;
-                        break;
-
-                    case 3:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 - 2;
-                        p.x2 = p.x2 + 1;
-                        p.y2 = p.y2 - 1;
-                        p.x3 = p.x3 + 2;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 + 0;
-                        break;
-
-
-                }
-                if (p.pos == 3) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
+            }
+            case 3:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,0,0,1,-1,2, -2, 3, -3);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,0,0,-1,1,-2, 2, -3, 3);
+                    p.pos =1;
                 }
                 break;
-
-            case 5:
-                switch (p.pos) {
-                    case 0:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 + 1;
-                        p.x2 = p.x2 - 1;
-                        p.y2 = p.y2 + 2;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 1:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 - 1;
-                        p.x2 = p.x2 + 1;
-                        p.y2 = p.y2 - 2;
-                        p.x3 = p.x3 + 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 + 1;
-                        break;
-                }
-                if (p.pos == 1) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
+            }
+            case 4:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,1,0,0,1,-1, 2, -1, 0);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,1,1,0,0,-1, -1, 1, -1);
+                    p.pos =2;
+                }else if(p.pos ==2){
+                    p = cambiarPosicion(p,-2,1,-1,0,0, -1, 0, 1);
+                    p.pos =3;
+                }else if (p.pos ==3) {
+                    p = cambiarPosicion(p,0,-2,1,-1,2, 0, 0, 0);
+                    p.pos =0;
                 }
                 break;
-
-            case 6:
-                switch (p.pos) {
-                    case 0:
-                        p.x1 = p.x1 + 1;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 + 1;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 - 2;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 1:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 + 2;
-                        p.x2 = p.x2 - 1;
-                        p.y2 = p.y2 + 1;
-                        p.x3 = p.x3 + 0;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 1;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 2:
-                        p.x1 = p.x1 - 2;
-                        p.y1 = p.y1 - 1;
-                        p.x2 = p.x2 - 1;
-                        p.y2 = p.y2 - 2;
-                        p.x3 = p.x3 + 0;
-                        p.y3 = p.y3 - 1;
-                        p.x4 = p.x4 + 1;
-                        p.y4 = p.y4 + 0;
-                        break;
-
-                    case 3:
-                        p.x1 = p.x1 + 1;
-                        p.y1 = p.y1 - 1;
-                        p.x2 = p.x2 + 2;
-                        p.y2 = p.y2 + 0;
-                        p.x3 = p.x3 + 1;
-                        p.y3 = p.y3 + 1;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 + 2;
-                        break;
-
-                }
-                if (p.pos == 3) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
+            }
+            case 5:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,0,1,-1,2,-1, 0, 0, -1);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,0,-1,1,-2,1, 0, 0, 1);
+                    p.pos =1;
                 }
                 break;
-
-            case 7:
-                switch (p.pos) {
-                    case 0:
-                        p.x1 = p.x1 + 2;
-                        p.y1 = p.y1 + 1;
-                        p.x2 = p.x2 + 1;
-                        p.y2 = p.y2 + 2;
-                        p.x3 = p.x3 + 1;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 0;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 1:
-                        p.x1 = p.x1 - 1;
-                        p.y1 = p.y1 + 1;
-                        p.x2 = p.x2 - 2;
-                        p.y2 = p.y2 + 0;
-                        p.x3 = p.x3 + 0;
-                        p.y3 = p.y3 + 0;
-                        p.x4 = p.x4 + 1;
-                        p.y4 = p.y4 - 1;
-                        break;
-
-                    case 2:
-                        p.x1 = p.x1 - 1;
-                        p.y1 = p.y1 + 0;
-                        p.x2 = p.x2 + 0;
-                        p.y2 = p.y2 - 1;
-                        p.x3 = p.x3 + 0;
-                        p.y3 = p.y3 + 1;
-                        p.x4 = p.x4 + 1;
-                        p.y4 = p.y4 + 2;
-                        break;
-
-                    case 3:
-                        p.x1 = p.x1 + 0;
-                        p.y1 = p.y1 - 2;
-                        p.x2 = p.x2 + 1;
-                        p.y2 = p.y2 - 1;
-                        p.x3 = p.x3 - 1;
-                        p.y3 = p.y3 - 1;
-                        p.x4 = p.x4 - 2;
-                        p.y4 = p.y4 + 0;
-                        break;
-
-                }
-                if (p.pos == 3) {
-                    p.pos = 0;
-                } else {
-                    p.pos++;
+            }
+            case 6:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,1,0,0,1,-1, 0, -2, -1);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,0,2,-1,1,0, 0, 1, -1);
+                    p.pos =2;
+                }else if(p.pos ==2){
+                    p = cambiarPosicion(p,-2,-1,-1,-2,0, -1, 1, 0);
+                    p.pos =3;
+                }else if (p.pos ==3) {
+                    p = cambiarPosicion(p,1,-1,2,0,1, 1, 0, 2);
+                    p.pos =0;
                 }
                 break;
+            }
+            case 7:{
+                if (p.pos == 0){
+                    p = cambiarPosicion(p,2,1,1,2,1, 0, 0, -1);
+                    p.pos =1;
+                }else if (p.pos ==1){
+                    p = cambiarPosicion(p,-1,1,-2,0,0, 0, 1, -1);
+                    p.pos =2;
+                }else if(p.pos ==2){
+                    p = cambiarPosicion(p,-1,0,0,-1,0, 1, 1, 2);
+                    p.pos =3;
+                }else if (p.pos ==3) {
+                    p = cambiarPosicion(p,0,-2,1,-1,-1, -1, -2, 0);
+                    p.pos =0;
+                }
+                break;
+            }
+            default:break;
         }
+
     }
 
-    /*este metodo mueve la pieza despues de comprobarlo abajo,izquierda o derecha segun el char
-    que le pasen, para ello usamos comprueba y el tipo de movimiento y en comprueba hay que
-    comprobar que la PIEZA  no se salga del tablero y que no choque con otras.
-    Puede salirse la matriz auxiiar de rangos pero nunca se puede salir la pieza
-     */
-    public void moverPiezas(Pieza pieza, char x) {
-        if (pieza != null) {
-            switch (x) {
-                case 'i':
-                    if (puedeMoverse(pieza, -1, 0, false)) {
-                        borrarPieza(pieza);
-                        pieza.mover(-1, 0);
-                        ponerPieza(pieza);
-                    }
-                    break;
-                case 'd':
-                    if (puedeMoverse(pieza, 1, 0, false)) {
-                        borrarPieza(pieza);
-                        pieza.mover(1, 0);
-                        ponerPieza(pieza);
-                    }
-                    break;
-                case 'a':
-                    if (puedeMoverse(pieza, 0, 1, false)) {
-                        borrarPieza(pieza);
-                        pieza.mover(0, 1);
-                        ponerPieza(pieza);
-                    }
-                    break;
-            }
+    public void moverPiezas(Pieza pieza, char type) {
+        if (pieza==null){
+            return;
         }
-
+        if (type == 'i' && puedeMoverse(pieza, -1, 0, false)){
+            borrarPieza(pieza);
+            pieza.mover(-1, 0);
+            ponerPieza(pieza);
+        } else if (type == 'd' && puedeMoverse(pieza, 1, 0, false)){
+            borrarPieza(pieza);
+            pieza.mover(1, 0);
+            ponerPieza(pieza);
+        }else if (type == 'a' && puedeMoverse(pieza, 0, 1, false)){
+            borrarPieza(pieza);
+            pieza.mover(0, 1);
+            ponerPieza(pieza);
+        }else{return;}
     }
 
     public boolean puedeMoverse(Pieza pieza, int x, int y, boolean vengoDeRotar) {
-        int n = 0; //contador para saber si la pieza entera puede moverse
+        int n = 0;
         if (pieza == null) {
             return true;
         }
-        Point xy1 = new Point(pieza.x1, pieza.y1);
-        Point xy2 = new Point(pieza.x2, pieza.y2);
-        Point xy3 = new Point(pieza.x3, pieza.y3);
-        Point xy4 = new Point(pieza.x4, pieza.y4);
 
-        Point aux1 = new Point(pieza.x1 + x, pieza.y1 + y);
-        Point aux2 = new Point(pieza.x2 + x, pieza.y2 + y);
-        Point aux3 = new Point(pieza.x3 + x, pieza.y3 + y);
-        Point aux4 = new Point(pieza.x4 + x, pieza.y4 + y);
-
-        //Creamos un array con los puntos posibles donde se puede mover
         ArrayList<Point> puntos = new ArrayList<Point>();
-        puntos.add(aux1);
-        puntos.add(aux2);
-        puntos.add(aux3);
-        puntos.add(aux4);
+        puntos.add(new Point(pieza.x1 + x, pieza.y1 + y));
+        puntos.add(new Point(pieza.x2 + x, pieza.y2 + y));
+        puntos.add(new Point(pieza.x3 + x, pieza.y3 + y));
+        puntos.add(new Point(pieza.x4 + x, pieza.y4 + y));
 
         //Recorremos el array de los posibles puntos y controlamos que estamos dentro del tablero o si está ocupada la posicion o no
         for (Point a : puntos) {
-            if (a.x < anchuraTablero && a.x >= 0 && a.y >= 0 && a.y < alturaTablero && (tab[a.x][a.y] == 0 || tab[a.x][a.y] == 8)) {
+            if ((a.x < this.ANCHURA_TABLERO && a.x >= 0 && a.y >= 0 && a.y < this.ALTURA_TABLERO && (tab[a.x][a.y] == 0
+                    || tab[a.x][a.y] == 8)) ||((a.equals(new Point(pieza.x1, pieza.y1)) || a.equals(new Point(pieza.x2, pieza.y2))
+                    || a.equals(new Point(pieza.x3, pieza.y3)) || a.equals(new Point(pieza.x4, pieza.y4)))&&(!vengoDeRotar))) {
                 n++;
-            } else if (a.equals(xy1) || a.equals(xy2) || a.equals(xy3) || a.equals(xy4)) {
-                if (!vengoDeRotar) {
-                    n++;
-                }
             }
         }
         if (n == 4) {
             return true;
         }
-
         return false;
     }
 
     public int getAlturaTablero() {
-        return this.alturaTablero;
+        return this.ALTURA_TABLERO;
     }
 
     public int getAnchoTablero() {
-        return this.anchuraTablero;
+        return this.ANCHURA_TABLERO;
     }
 
     public void comprobarRotar(Pieza p) {
@@ -627,5 +363,10 @@ public class Tablero {
         if (puedeMoverse(aux, 0, 0, true)) {
             alfredo(p);
         }
+    }
+
+    public int[][] getTab(){
+        final int[][] tab = this.tab;
+        return tab;
     }
 }
