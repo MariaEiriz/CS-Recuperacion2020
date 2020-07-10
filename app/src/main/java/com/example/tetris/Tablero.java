@@ -197,97 +197,122 @@ public class Tablero {
         tab[pieza.x3][pieza.y3] = 0;
         tab[pieza.x4][pieza.y4] = 0;
     }
-    public Pieza cambiarPosicion(Pieza p, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
-        p.x1 = p.x1 + x1;
-        p.y1 = p.y1 + y1;
-        p.x2 = p.x2 + x2;
-        p.y2 = p.y2 + y2;
-        p.x3 = p.x3 + x3;
-        p.y3 = p.y3 + y3;
-        p.x4 = p.x4 + x4;
-        p.y4 = p.y4 + y4;
+    public Pieza cambiarPosicion(Pieza p, int[]puntos){
+        p.x1 = p.x1 + puntos[0];
+        p.y1 = p.y1 + puntos[1];
+        p.x2 = p.x2 + puntos[2];
+        p.y2 = p.y2 + puntos[3];
+        p.x3 = p.x3 + puntos[4];
+        p.y3 = p.y3 + puntos[5];
+        p.x4 = p.x4 + puntos[6];
+        p.y4 = p.y4 + puntos[7];
         return p;
+    }
+    public Pieza cambiarPos2 (Pieza p){
+
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{1,0, 0,1, -1,0, -2,1};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{1,0,0,-1,1,0,2,-1};
+            p.pos =1;
+        }
+        return cambiarPosicion(p,puntos);
+    }
+    public Pieza cambiarPos3(Pieza p){
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{0,0,1,-1,2, -2, 3, -3};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{0,0,-1,1,-2, 2, -3, 3};
+            p.pos =1;
+        }
+        return cambiarPosicion(p,puntos);
+    }
+    public Pieza cambiarPos4(Pieza p){
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{1,0,0,1,-1, 2, -1, 0};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{1,1,0,0,-1, -1, 1, -1};
+            p.pos =2;
+        }else if(p.pos ==2){
+            puntos = new int[]{-2,1,-1,0,0, -1, 0, 1};
+            p.pos =3;
+        }else if (p.pos ==3) {
+            puntos = new int[]{0,-2,1,-1,2, 0, 0, 0};
+            p.pos =0;
+        }
+        return cambiarPosicion(p,puntos);
+    }
+    public Pieza cambiarPos5(Pieza p){
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{0,1,-1,2,-1, 0, 0, -1};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{0,-1,1,-2,1, 0, 0, 1};
+            p.pos =1;
+        }
+        return cambiarPosicion(p,puntos);
+    }
+    public Pieza cambiarPos6(Pieza p){
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{1,0,0,1,-1, 0, -2, -1};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{0,2,-1,1,0, 0, 1, -1};
+            p.pos =2;
+        }else if(p.pos ==2){
+            puntos = new int[]{-2,-1,-1,-2,0, -1, 1, 0};
+            p.pos =3;
+        }else if (p.pos ==3) {
+            puntos = new int[]{1,-1,2,0,1, 1, 0, 2};
+            p.pos =0;
+        }
+        return cambiarPosicion(p,puntos);
+    }
+    public Pieza cambiarPos7(Pieza p){
+        int[] puntos = new int[]{0,0,0,0,0,0,0,0};
+        if (p.pos == 0){
+            puntos = new int[]{2,1,1,2,1, 0, 0, -1};
+            p.pos =1;
+        }else if (p.pos ==1){
+            puntos = new int[]{-1,1,-2,0,0, 0, 1, -1};
+            p.pos =2;
+        }else if(p.pos ==2){
+            puntos = new int[]{-1,0,0,-1,0, 1, 1, 2};
+            p.pos =3;
+        }else if (p.pos ==3) {
+            puntos = new int[]{0,-2,1,-1,-1, -1, -2, 0};
+            p.pos =0;
+        }
+        return cambiarPosicion(p,puntos);
     }
     public void alfredo(Pieza p) {
         switch (p.id){
-            case 2:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,1,0,0,1,-1, 0, -2, 1);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,-1,0,0,-1,1, 0, 2, -1);
-                    p.pos =1;
-                }
+            case 2:
+                cambiarPos2(p);
                 break;
-            }
-            case 3:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,0,0,1,-1,2, -2, 3, -3);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,0,0,-1,1,-2, 2, -3, 3);
-                    p.pos =1;
-                }
+            case 3:
+                cambiarPos3(p);
                 break;
-            }
-            case 4:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,1,0,0,1,-1, 2, -1, 0);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,1,1,0,0,-1, -1, 1, -1);
-                    p.pos =2;
-                }else if(p.pos ==2){
-                    p = cambiarPosicion(p,-2,1,-1,0,0, -1, 0, 1);
-                    p.pos =3;
-                }else if (p.pos ==3) {
-                    p = cambiarPosicion(p,0,-2,1,-1,2, 0, 0, 0);
-                    p.pos =0;
-                }
+            case 4:
+                 cambiarPos4(p);
+                 break;
+            case 5:
+                cambiarPos5(p);
                 break;
-            }
-            case 5:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,0,1,-1,2,-1, 0, 0, -1);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,0,-1,1,-2,1, 0, 0, 1);
-                    p.pos =1;
-                }
+            case 6:
+                cambiarPos6(p);
                 break;
-            }
-            case 6:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,1,0,0,1,-1, 0, -2, -1);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,0,2,-1,1,0, 0, 1, -1);
-                    p.pos =2;
-                }else if(p.pos ==2){
-                    p = cambiarPosicion(p,-2,-1,-1,-2,0, -1, 1, 0);
-                    p.pos =3;
-                }else if (p.pos ==3) {
-                    p = cambiarPosicion(p,1,-1,2,0,1, 1, 0, 2);
-                    p.pos =0;
-                }
+            case 7:
+                cambiarPos7(p);
                 break;
-            }
-            case 7:{
-                if (p.pos == 0){
-                    p = cambiarPosicion(p,2,1,1,2,1, 0, 0, -1);
-                    p.pos =1;
-                }else if (p.pos ==1){
-                    p = cambiarPosicion(p,-1,1,-2,0,0, 0, 1, -1);
-                    p.pos =2;
-                }else if(p.pos ==2){
-                    p = cambiarPosicion(p,-1,0,0,-1,0, 1, 1, 2);
-                    p.pos =3;
-                }else if (p.pos ==3) {
-                    p = cambiarPosicion(p,0,-2,1,-1,-1, -1, -2, 0);
-                    p.pos =0;
-                }
-                break;
-            }
             default:break;
         }
 
