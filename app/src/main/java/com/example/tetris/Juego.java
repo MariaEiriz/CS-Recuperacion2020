@@ -194,9 +194,9 @@ public class Juego extends View implements View.OnClickListener {
     public void cambiarColorLinea(int i) {
         if (i != 0) {
             if (i == 1) {
-                tablero.cambiarColores1Linea();
+                tablero.CambiarColores1Linea();
             } else {
-                tablero.cambiarColoresMultiLinea();
+                tablero.CambiarColoresMultiLinea();
             }
             filasPorBorrar.clear();
         }
