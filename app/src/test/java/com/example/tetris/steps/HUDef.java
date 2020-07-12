@@ -1,4 +1,4 @@
-package com.example.tetris;
+package com.example.tetris.steps;
 
 import com.example.tetris.utils.App;
 import com.example.tetris.utils.SmokeTest;
@@ -16,6 +16,18 @@ public class HUDef {
     @Given("^We open the app$")
     public void weOpenTheApp() {
         this.app = new App();
+    }
+
+    @SmokeTest
+    @When("^We start the game$")
+    public void weStartTheGame() {
+        app.start();
+    }
+
+    @SmokeTest
+    @Then("^We see an activity Screen$")
+    public void weSeeAnActivityScreen() {
+        assertTrue(app.isStarted());
     }
 
 }
