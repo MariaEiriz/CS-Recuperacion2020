@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class Inicio extends AppCompatActivity {
 
-    Button modoClasico;
+    public Button modoClasico;
     Button muerteSubita;
     Button colores;
     ImageView settings;

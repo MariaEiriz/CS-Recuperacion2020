@@ -69,19 +69,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ImageButton getBotonDcha() {
-        return findViewById(R.id.botonDcha);
+        return this.botonDcha;
     }
 
     public ImageButton getBotonBajar() {
-        return findViewById(R.id.botonBajar);
+        return this.botonBajar;
     }
 
     public ImageButton getBotonIzda() {
-        return findViewById(R.id.botonIzda);
+        return this.botonIzda;
     }
 
     public ImageButton getBotonRotar() {
-        return findViewById(R.id.botonRotar);
+        return this.botonRotar;
     }
 
     public TextView getPuntos() {
@@ -99,6 +99,35 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentGameOver);
     }
 
+    public Tablero getTablero() {
+        return tablero;
+    }
 
+    public Tablero getVentana() {
+        return ventana;
+    }
 
+    public void setBotonDcha(ImageButton botonDcha) {
+        this.botonDcha = botonDcha;
+    }
+
+    public void setBotonBajar(ImageButton botonBajar) {
+        this.botonBajar = botonBajar;
+    }
+
+    public void setBotonIzda(ImageButton botonIzda) {
+        this.botonIzda = botonIzda;
+    }
+
+    public void setBotonRotar(ImageButton botonRotar) {
+        this.botonRotar = botonRotar;
+    }
+
+    public void setPuntosTextView(TextView puntosTextView) {
+        this.puntosTextView = puntosTextView;
+    }
+
+    public void setNivelTextView(TextView nivelTextView) {
+        this.nivelTextView = nivelTextView;
+    }
 }

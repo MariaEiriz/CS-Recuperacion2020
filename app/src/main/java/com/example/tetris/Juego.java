@@ -54,15 +54,25 @@ public class Juego extends View implements View.OnClickListener {
         botonIzda = mainActivity.getBotonIzda();
         puntuacion = mainActivity.getPuntos();
         nivel = mainActivity.getNivel();
+        if (puntuacion !=null) {
+            puntuacion.append(" 0");
+        }
+        if (nivel != null){
+            nivel.append(" 1");
+        }
 
-        puntuacion.append(" 0");
-        nivel.append(" 1");
-
-
-        botonDcha.setOnClickListener(this);
-        botonBajar.setOnClickListener(this);
-        botonIzda.setOnClickListener(this);
-        botonRotar.setOnClickListener(this);
+        if (botonDcha !=null) {
+            botonDcha.setOnClickListener(this);
+        }
+        if (botonBajar!=null){
+            botonBajar.setOnClickListener(this);
+        }
+        if (botonIzda !=null){
+            botonIzda.setOnClickListener(this);
+        }
+        if (botonRotar !=null){
+            botonRotar.setOnClickListener(this);
+        }
         if (modo == 0) {
             loopClasico();
         } else {
@@ -275,6 +285,13 @@ public class Juego extends View implements View.OnClickListener {
         return this.nivelvar;
     }
 
+    public int getModo() {
+        return modo;
+    }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
 }
 
 
