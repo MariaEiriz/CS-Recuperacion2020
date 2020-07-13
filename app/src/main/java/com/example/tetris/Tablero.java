@@ -21,6 +21,10 @@ public class Tablero {
     private static int colorSPieza = 5;
     private static int colorLPieza = 6;
     private static int colorJPieza = 7;
+    private static final int[] vectorPiezas2Pos0 = new int[]{};
+    private static final int[] vectorPiezas2Pos1 = new int[]{};
+
+
     private Pieza auxTroll;
 
     public Tablero() {
@@ -127,6 +131,10 @@ public class Tablero {
 
     public ArrayList<Pieza> getListaPiezas() {
         return listaPiezas;
+    }
+
+    public void setListaPiezas(ArrayList<Pieza> listaPiezas) {
+        this.listaPiezas = listaPiezas;
     }
 
     public Pieza getPieza() {
@@ -298,7 +306,7 @@ public class Tablero {
     }
 
     public boolean puedeMoverse(Pieza pieza, int x, int y, boolean vengoDeRotar) {
-        int n = 0; //contador para saber si la pieza entera puede moverse
+        int n = 0;
         if (pieza == null) {
             return true;
         }
